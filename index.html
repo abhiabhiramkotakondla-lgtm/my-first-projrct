@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-badge">C</span>
+          <div>
+            <h1>CRUD</h1>
+            <p>Discover fresh deals, trusted brands, and fast delivery</p>
+          </div>
+        </div>
+        <div class="header-actions">
+          <div class="pill">Free delivery above ₹999</div>
+          <div class="pill">Big discounts</div>
+          <div class="pill">24x7 support</div>
+            <button id="cartToggle" class="btn btn-secondary" style="margin-left:8px;">Cart (<span id="cartCount">0</span>)</button>
+        </div>
+      </header>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">Shop smart</span>
+          <h2>Explore a wide range of products with great prices and easy browsing.</h2>
+          <p>
+            Find trending items, compare choices, and enjoy a smooth shopping experience with a modern catalog layout.
+          </p>
+          <div class="hero-actions">
+            <a href="#catalog" class="btn btn-primary">Explore products</a>
+            <a href="#product-form" class="btn btn-secondary">Add new product</a>
+          </div>
+          <div class="stats-row">
+            <div class="stat-card">
+              <strong id="totalProducts">0</strong>
+              <span>Total products</span>
+            </div>
+            <div class="stat-card">
+              <strong id="totalValue">₹0</strong>
+              <span>Catalog value</span>
+            </div>
+            <div class="stat-card">
+              <strong id="categoryCount">0</strong>
+              <span>Categories</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card-top">
+            <span class="tag">Mega sale</span>
+            <span class="tag alt">Up to 70% off</span>
+          </div>
+          <div class="hero-product">
+            <div class="product-badge">Trending now</div>
+            <h3>Premium Smart Gadgets</h3>
+            <p>Bright displays, fast performance, and irresistible daily deals.</p>
+            <button class="btn btn-primary mini">Shop now</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="controls-panel">
+        <div class="form-card" id="product-form">
+          <h3 id="form-title">Add a product</h3>
+          <form id="productForm">
+            <label>
+              Product name
+              <input id="name" name="name" placeholder="e.g. Smart Lamp" required />
+            </label>
+            <label>
+              Price (₹)
+              <input id="price" name="price" type="number" min="1" placeholder="1999" required />
+            </label>
+            <label>
+              Category
+              <input id="category" name="category" placeholder="Electronics" required />
+            </label>
+            <label>
+              Description
+              <textarea id="description" name="description" rows="3" placeholder="Describe the product"></textarea>
+            </label>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Save product</button>
+              <button type="button" id="cancelEdit" class="btn btn-secondary">Cancel</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="catalog-card" id="catalog">
+          <div class="catalog-header">
+            <div>
+              <span class="eyebrow">Catalog</span>
+              <h3>Fresh picks for your wishlist</h3>
+            </div>
+            <div class="search-row">
+              <input type="text" id="searchInput" placeholder="Search by name or category" />
+              <select id="categoryFilter">
+                <option value="all">All categories</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Fashion">Fashion</option>
+                <option value="Home">Home</option>
+                <option value="Beauty">Beauty</option>
+                <option value="Mobiles">Mobiles</option>
+                <option value="Furniture">Furniture</option>
+                <option value="Groceries">Groceries</option>
+                <option value="Sports">Sports</option>
+                <option value="Books">Books</option>
+                <option value="Toys">Toys</option>
+                <option value="Jewellery">Jewellery</option>
+                <option value="Appliances">Appliances</option>
+              </select>
+                <select id="sortSelect" aria-label="Sort products">
+                  <option value="default">Sort</option>
+                  <option value="price-asc">Price: Low to High</option>
+                  <option value="price-desc">Price: High to Low</option>
+                  <option value="newest">Newest</option>
+                  <option value="rating">Rating</option>
+                </select>
+            </div>
+          </div>
+          <div class="catalog-grid" id="productGrid"></div>
+        </div>
+      </section>
+      <!-- Cart modal -->
+      <div id="cartModal" class="cart-modal" aria-hidden="true" style="display:none;">
+        <div class="cart-panel">
+          <button id="closeCart" class="btn btn-secondary">Close</button>
+          <h3>Your cart</h3>
+          <div id="cartItems"></div>
+          <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center;">
+            <strong>Total: <span id="cartTotal">₹0</span></strong>
+            <div>
+              <a href="address.html" id="checkoutBtn" class="btn btn-primary">Checkout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
